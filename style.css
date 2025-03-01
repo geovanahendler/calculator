@@ -28,12 +28,16 @@ main {
 
 header{
     padding: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 #themeSwitcher {
     background-color: var(--bg-color);
     border: .125rem solid var(--font-color);
     color: var(--font-color);
+    margin: 10px;
 }
 
 #themeSwitcher:hover {

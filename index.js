@@ -3,6 +3,7 @@ const root = document.querySelector(":root")
 const input = document.getElementById("input")
 const resultInput = document.getElementById("result")
 const allowedKeys = ["(", ")", "/", "*", "-", "+", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ".", "%", " "]
+const copyToClipboard = document.getElementById("copyToClipboard")
 
 document.querySelectorAll(".charKey").forEach(function (charKeyBtn) {
     charKeyBtn.addEventListener("click", function () {
@@ -11,9 +12,10 @@ document.querySelectorAll(".charKey").forEach(function (charKeyBtn) {
     })
 })
 
-document.getElementById("clear").addEventListener("click", function () {
+document.getElementById("clear").addEventListener("click", function (ev) {
     input.value = ""
     input.focus()
+    resultInput.value = ""
 })
 
 input.addEventListener("keydown", function (ev) {
@@ -40,12 +42,19 @@ function calculate() {
     resultInput.classList.remove("error")
 }
 
-document.getElementById("copyToClipboard").addEventListener("click", function (ev) {
+copyToClipboard.addEventListener("click", function (ev) {
     const button = ev.currentTarget
-    if(button.innerText === "Copy") {
-        button.innerText === "Copied!"
+
+    if(button.innerText === "Copiar") {
+        button.innerText = "Copiado!"
         button.classList.add("success")
         navigator.clipboard.writeText(resultInput.value)
+
+        setTimeout(() => {
+            button.innerText = "Copiar"
+            button.classList.remove("success")
+        }, 2000)
+
     } else {
         button.innerText = "Copy"
         button.classList.remove("success")
