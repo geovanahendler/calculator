@@ -45,7 +45,7 @@ Para rodar o projeto localmente, siga os passos abaixo:
 
 **Clone o repositório:**
 
-git clone https://github.com/seu-usuario/calculadora-tematica.git
+git clone https://github.com/geovanahendler/calculator.git
 
 **Acesse o diretório do projeto:**
 
